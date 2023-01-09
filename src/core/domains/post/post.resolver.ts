@@ -5,7 +5,6 @@ import {
   Args,
   Int,
   ResolveField,
-  Parent,
 } from '@nestjs/graphql';
 import { PostService } from './post.service';
 import { PostEntity } from './entities/post.entity';

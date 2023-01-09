@@ -15,7 +15,11 @@ async function bootstrap() {
       contentSecurityPolicy: !isDevelopment,
     }),
   );
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+    }),
+  );
 
   const config = new DocumentBuilder()
     .setTitle('NestJS Template')
