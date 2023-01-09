@@ -1,0 +1,77 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreatePostInput {
+  authorId: Float!
+  content: String!
+  published: Boolean
+  title: String!
+}
+
+input CreateProfileInput {
+  bio: String!
+}
+
+input CreateUserInput {
+  email: String!
+  name: String!
+  profile: CreateProfileInput
+}
+
+type Mutation {
+  createPost(createPostInput: CreatePostInput!): PostEntity!
+  createUser(createUserInput: CreateUserInput!): UserEntity!
+  removePost(id: Int!): PostEntity!
+  removeUser(id: Int!): UserEntity!
+  updatePost(id: Int!, updatePostInput: UpdatePostInput!): PostEntity!
+  updateUser(id: Int!, updateUserInput: UpdateUserInput!): UserEntity!
+}
+
+type PostEntity {
+  author: UserEntity!
+  authorId: Float!
+  content: String!
+  id: Float!
+  published: Boolean!
+  title: String!
+}
+
+type ProfileEntity {
+  bio: String!
+  id: ID!
+  user: UserEntity!
+  userId: Float!
+}
+
+type Query {
+  post(id: Int!): PostEntity!
+  user(id: Int!): UserEntity!
+  users: [UserEntity!]!
+}
+
+input UpdatePostInput {
+  authorId: Float
+  content: String
+  published: Boolean
+  title: String
+}
+
+input UpdateProfileInput {
+  bio: String!
+}
+
+input UpdateUserInput {
+  email: String
+  name: String
+  profile: UpdateProfileInput
+}
+
+type UserEntity {
+  email: String!
+  id: Float!
+  name: String!
+  posts: [PostEntity!]!
+  profile: ProfileEntity
+  profileId: Float
+}
